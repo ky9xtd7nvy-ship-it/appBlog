@@ -1,7 +1,7 @@
 const pool = require('../config/db');
 
 // Obtener todos los posts incluso los datos del autor perteneciente
-const getAllPostsWithAutores = async () => {
+const getAllPostsWithAuthors = async () => {
     const [rows] = await pool.query(`
         SELECT
             p.id AS post_id, 
@@ -21,7 +21,7 @@ const getAllPostsWithAutores = async () => {
 };
 
 // Obtener los posts escritos por un autor concreto
-const getPostsByAutor = async (autorId) => {
+const getPostsByAuthor = async (autorId) => {
     const [rows] = await pool.query(`
         SELECT
             p.id AS post_id,
@@ -60,7 +60,7 @@ const createPost = async ({
 };
 
 module.exports = {
-    getAllPostsWithAutores,
-    getPostsByAutor,
+    getAllPostsWithAuthors,
+    getPostsByAuthor,
     createPost
 }
